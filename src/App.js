@@ -28,14 +28,14 @@ const App = () => {
     <>
       <SwiperContainer
         slidesPerView={2}
-        spaceBetween={10}
+        spaceBetween={20}
         centeredSlides={true}
         grabCursor={true}
         loop={true}
         breakpoints={{
           640: {
             slidesPerView: 3,
-            spaceBetween: 10,
+            spaceBetween: 20,
             loopedSlides: 2,
           },
           768: {
