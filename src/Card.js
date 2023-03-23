@@ -18,6 +18,7 @@ const ImageContainer = styled.div`
   background-image: ${(props) =>
     props.active ? `url(${props.img})` : `url(${props.secondImg})`};
   transform: ${(props) => (props.active ? "scale(1)" : "scale(0.8)")};
+  filter: ${(props) => (props.active ? "" : "brightness(70%)")};
   background-size: cover;
   border-radius: 50%;
   border: none;
@@ -90,11 +91,11 @@ export const Card = ({ item }) => {
         <Image active={swiperSlide.isActive} src={item.image} alt="bla" />
       </ImageContainer>
       <CardContent active={swiperSlide.isActive}>
-        <h3>Havalia Productus</h3>
-        <p>Best accurate trade item description small size</p>
+        <h3>{item.title}</h3>
+        <p>{item.desc}</p>
         <ButtonWrapper column>
-          <Button>Buy now</Button>
-          <Button outlined>Go to the Shop</Button>
+          <Button>Kup teraz</Button>
+          <Button outlined>Zobacz wszystkie produkty</Button>
         </ButtonWrapper>
       </CardContent>
     </CardContainer>
