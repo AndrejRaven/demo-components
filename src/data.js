@@ -1,63 +1,45 @@
-import tent from "./images/tent.png";
-import tent2 from "./images/tent2.png";
-import palnik from "./images/palnik.png";
-import lodowka from "./images/lodowka.png";
-import garnki from "./images/garnki.png";
-import plecak from "./images/plecak.png";
-import bg1 from "./images/bg-images/bg1.jpg";
-import bg2 from "./images/bg-images/bg2.jpg"; 
-import bg3 from "./images/bg-images/bg3.jpg"; 
-import bg4 from "./images/bg-images/bg4.jpg"; 
-import bg5 from "./images/bg-images/bg5.jpg";
-import bg6 from "./images/bg-images/bg6.jpg"; 
-import bg7 from "./images/bg-images/bg7.jpg";
-import bg8 from "./images/bg-images/bg8.jpg";
-import bg9 from "./images/bg-images/bg9.jpg"; 
-import bg10 from "./images/bg-images/bg10.jpg";
-import bg11 from "./images/bg-images/bg11.jpg";
-import bg12 from "./images/bg-images/bg12.jpg";
 
 export const items = [
   {
-    img: bg1,
-    secondImg: bg2,
+    img: "https://i.postimg.cc/vZry9vZN/bg1-min.jpg",
+    secondImg: "https://i.postimg.cc/qqFKsTj4/bg10-min.jpg",
     title: "Tańszy namiot",
     desc: "Kompaktowy, łatwy w montażu, przewiewny.",
-    image: tent,
+    image: "https://i.postimg.cc/859KCqMf/tent.png",
   },
   {
-    img: bg3,
-    secondImg: bg4,
+    img: "https://i.postimg.cc/sfH5dYyq/bg11-min.jpg",
+    secondImg: "https://i.postimg.cc/C1mkKD8Z/bg12-min.jpg",
     title: "Droższy namiot",
     desc: "Lekki, wytrzymały, wodoodporny.",
-    image: tent2,
+    image: "https://i.postimg.cc/PJD6v2Q3/tent2.png",
   },
   {
-    img: bg5,
-    secondImg: bg6,
+    img: "https://i.postimg.cc/85hXXZx2/bg2-min.jpg",
+    secondImg: "https://i.postimg.cc/pX0GSh1L/bg3-min.jpg",
     title: "Palnik gazowy",
     desc: "Kompaktowy, przenośny palnik do gotowania na świeżym powietrzu.",
-    image: palnik,
+    image: "https://i.postimg.cc/44H20xR6/palnik.png",
   },
   {
-    img: bg7,
-    secondImg: bg8,
+    img: "https://i.postimg.cc/rs2XK0Lk/bg4-min.jpg",
+    secondImg: "https://i.postimg.cc/2yDMCs4j/bg5-min.jpg",
     title: "Lodówka turystyczna",
     desc: "Przenośna, chłodzi i zamraża, energooszczędna.",
-    image: lodowka,
+    image: "https://i.postimg.cc/zXm2YYq9/lodowka.png",
   },
   {
-    img: bg9,
-    secondImg: bg10,
+    img: "https://i.postimg.cc/yN5zCpQW/bg6-min.jpg",
+    secondImg: "https://i.postimg.cc/fLwYZ5Vn/bg7-min.jpg",
     title: "Garnki turystyczne",
     desc: "Kompaktowe, lekkie, wytrzymałe.",
-    image: garnki,
+    image: "https://i.postimg.cc/hG43Z8Kv/garnki.png",
   },
   {
-    img: bg11,
-    secondImg: bg12,
+    img: "https://i.postimg.cc/ZRFjxCdZ/bg8-min.jpg",
+    secondImg: "https://i.postimg.cc/RV9xmHR1/bg9-min.jpg",
     title: "Plecak turystyczny",
     desc: "Przestronny, ergonomiczny, wygodny.",
-    image: plecak,
+    image: "https://i.postimg.cc/nzCSpHjt/plecak.png",
   },
 ];
