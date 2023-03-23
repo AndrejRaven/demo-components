@@ -1,8 +1,20 @@
 {
   "files": {
     "main.css": "/demo-components/static/css/main.e910e015.css",
-    "main.js": "/demo-components/static/js/main.82493561.js",
+    "main.js": "/demo-components/static/js/main.5908b60b.js",
+    "static/media/bg1.jpg": "/demo-components/static/media/bg1.b96c49c205bd93910953.jpg",
+    "static/media/bg7.jpg": "/demo-components/static/media/bg7.e51fc2727632ba481717.jpg",
+    "static/media/bg8.jpg": "/demo-components/static/media/bg8.ea1ebd5f3fac3df7859c.jpg",
+    "static/media/bg10.jpg": "/demo-components/static/media/bg10.1e2388b8dbbe8f29a212.jpg",
+    "static/media/bg11.jpg": "/demo-components/static/media/bg11.9d1e876f9509b805ed37.jpg",
+    "static/media/bg3.jpg": "/demo-components/static/media/bg3.64f9bd14b057a1887bce.jpg",
+    "static/media/bg2.jpg": "/demo-components/static/media/bg2.c154aaeef6f246dc8c77.jpg",
+    "static/media/bg12.jpg": "/demo-components/static/media/bg12.7ff8cecc4729ac3580dc.jpg",
+    "static/media/bg5.jpg": "/demo-components/static/media/bg5.ecc0997841c0ff70c1dc.jpg",
+    "static/media/bg9.jpg": "/demo-components/static/media/bg9.4eee44928b9a41922c54.jpg",
     "static/media/lodowka.png": "/demo-components/static/media/lodowka.19b71ddb1b45fe04c1bd.png",
+    "static/media/bg4.jpg": "/demo-components/static/media/bg4.4c2537616f82b181220e.jpg",
+    "static/media/bg6.jpg": "/demo-components/static/media/bg6.2d95cb8307aa4a31c17b.jpg",
     "static/media/palnik.png": "/demo-components/static/media/palnik.decb7f5690f348208744.png",
     "static/media/garnki.png": "/demo-components/static/media/garnki.90b51e70e370bc7040c3.png",
     "static/media/tent2.png": "/demo-components/static/media/tent2.bf63ff96cde94bb9d0ce.png",
@@ -10,10 +22,10 @@
     "static/media/plecak.png": "/demo-components/static/media/plecak.3999122a0cb8ad0f0aa0.png",
     "index.html": "/demo-components/index.html",
     "main.e910e015.css.map": "/demo-components/static/css/main.e910e015.css.map",
-    "main.82493561.js.map": "/demo-components/static/js/main.82493561.js.map"
+    "main.5908b60b.js.map": "/demo-components/static/js/main.5908b60b.js.map"
   },
   "entrypoints": [
     "static/css/main.e910e015.css",
-    "static/js/main.82493561.js"
+    "static/js/main.5908b60b.js"
   ]
 }
