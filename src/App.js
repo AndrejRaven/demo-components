@@ -16,7 +16,6 @@ const SwiperContainer = styled(Swiper)`
 const SwiperCard = styled(SwiperSlide)`
   text-align: center;
   font-size: 18px;
-  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
