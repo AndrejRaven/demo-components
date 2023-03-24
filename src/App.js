@@ -23,7 +23,7 @@ const SwiperCard = styled(SwiperSlide)`
 `;
 
 const App = () => {
-  const [active, setActive] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(false);
 
   return (
     <>
@@ -32,11 +32,16 @@ const App = () => {
         loopedSlides={6}
         spaceBetween={20}
         centeredSlides={true}
-        onTouchStart={() => setActive(false)}
-        onTouchEnd={() => setActive(true)}
         grabCursor={true}
+        onTouchStart={() => {
+          setActiveIndex(false);
+        }}
+        onTouchEnd={(swiper) => {
+          setActiveIndex(swiper.activeIndex);
+        }}
         loop={true}
         slideToClickedSlide={true}
+        touchMoveStopPropagation={false}
         breakpoints={{
           640: {
             slidesPerView: 2,
@@ -57,7 +62,7 @@ const App = () => {
       >
         {[...items, ...items].map((item, i) => (
           <SwiperCard key={i}>
-            <Card item={item} active={active} />
+            <Card item={item} activeIndex={activeIndex} />
           </SwiperCard>
         ))}
       </SwiperContainer>

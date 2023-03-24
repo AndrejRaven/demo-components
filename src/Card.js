@@ -79,19 +79,22 @@ const CardContent = styled.div`
   }
 `;
 
-export const Card = ({ item, active }) => {
-  const isActive = useSwiperSlide().isActive
+export const Card = ({ item, activeIndex }) => {
+  const activeItem = useSwiperSlide().isActive;
 
+  const active = activeIndex && activeItem;
+
+ 
   return (
     <CardContainer>
       <ImageContainer
-        active={isActive}
+        active={active}
         img={item.img}
         secondImg={item.secondImg}
       >
-        <Image active={isActive} src={item.image} alt="bla" />
+        <Image active={active} src={item.image} alt="bla" />
       </ImageContainer>
-      <CardContent active={isActive}>
+      <CardContent active={active}>
         <h3>{item.title}</h3>
         <p>{item.desc}</p>
         <ButtonWrapper column>
