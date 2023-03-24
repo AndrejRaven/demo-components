@@ -29,7 +29,7 @@ export const Button = styled.button`
   background-size: 200% 100%;
   background-position: left;
   text-align: center;
-  transition: all 0.15s ease;
+  transition: all 0.3s ease;
   &:hover {
     color: black;
   }

@@ -1,10 +1,11 @@
 import "./App.css";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import styled from "styled-components";
 import "swiper/css";
 
 import { Card } from "./Card";
 import { items } from "./data";
+import { useState } from "react";
 
 const SwiperContainer = styled(Swiper)`
   width: 100%;
@@ -22,36 +23,41 @@ const SwiperCard = styled(SwiperSlide)`
 `;
 
 const App = () => {
+  const [active, setActive] = useState(false);
 
   return (
     <>
       <SwiperContainer
         slidesPerView={2}
+        loopedSlides={6}
         spaceBetween={20}
         centeredSlides={true}
+        onTouchStart={() => setActive(false)}
+        onTouchEnd={() => setActive(true)}
         grabCursor={true}
         loop={true}
+        slideToClickedSlide={true}
         breakpoints={{
           640: {
-            slidesPerView: 3,
+            slidesPerView: 2,
             spaceBetween: 20,
-            loopedSlides: 2,
+            loopedSlides: 6,
           },
           768: {
             slidesPerView: 3,
             spaceBetween: 30,
-            loopedSlides: 2,
+            loopedSlides: 6,
           },
           1024: {
             slidesPerView: 4,
             spaceBetween: 50,
-            loopedSlides: 2,
+            loopedSlides: 6,
           },
         }}
       >
-        {items.map((item, i) => (
+        {[...items, ...items].map((item, i) => (
           <SwiperCard key={i}>
-            <Card item={item} />
+            <Card item={item} active={active} />
           </SwiperCard>
         ))}
       </SwiperContainer>

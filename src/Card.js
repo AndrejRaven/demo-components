@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useSwiperSlide } from "swiper/react";
+import { useSwiperSlide, useSwiper } from "swiper/react";
 import { Button, ButtonWrapper } from "./Buttons";
 
 const CardContainer = styled.div`
@@ -78,19 +79,19 @@ const CardContent = styled.div`
   }
 `;
 
-export const Card = ({ item }) => {
-  const swiperSlide = useSwiperSlide();
+export const Card = ({ item, active }) => {
+  const isActive = useSwiperSlide().isActive
 
   return (
     <CardContainer>
       <ImageContainer
-        active={swiperSlide.isActive}
+        active={isActive}
         img={item.img}
         secondImg={item.secondImg}
       >
-        <Image active={swiperSlide.isActive} src={item.image} alt="bla" />
+        <Image active={isActive} src={item.image} alt="bla" />
       </ImageContainer>
-      <CardContent active={swiperSlide.isActive}>
+      <CardContent active={isActive}>
         <h3>{item.title}</h3>
         <p>{item.desc}</p>
         <ButtonWrapper column>
