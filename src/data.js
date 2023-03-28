@@ -67,7 +67,7 @@ export const items = [
     img: "https://i.postimg.cc/rs2XK0Lk/bg4-min.jpg",
     secondImg: "https://i.postimg.cc/2yDMCs4j/bg5-min.jpg",
     title: "Lodówka turystyczna",
-    desc: "Przenośna, chłodzi i zamraża, energooszczędna.",
+    desc: "Przenośna, chłodzi i zamraża, energooszczędna. Kup że se. Test wielkośći tekstu dla wyruwnania szerokośći komponentu",
     image: "https://i.postimg.cc/zXm2YYq9/lodowka.png",
   },
   {

@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useSwiperSlide, useSwiper } from "swiper/react";
+import { useSwiperSlide } from "swiper/react";
 import { Button, ButtonWrapper } from "./Buttons";
 
 const CardContainer = styled.div`
@@ -51,6 +50,7 @@ const Image = styled.img`
 const CardContent = styled.div`
   text-align: center;
   margin-top: 20px;
+  cursor: default;
   margin-left: -20px;
   margin-right: -20px;
   display: ${(props) => (props.active ? "block" : "none")};
@@ -83,7 +83,6 @@ export const Card = ({ item, activeIndex }) => {
   const activeItem = useSwiperSlide().isActive;
 
   const active = activeIndex && activeItem;
-
  
   return (
     <CardContainer>
@@ -94,14 +93,14 @@ export const Card = ({ item, activeIndex }) => {
       >
         <Image active={active} src={item.image} alt="bla" />
       </ImageContainer>
-      <CardContent active={active}>
+      {/* <CardContent active={active}>
         <h3>{item.title}</h3>
         <p>{item.desc}</p>
         <ButtonWrapper column>
-          <Button>Kup teraz</Button>
+          <Button onClick={() => { alert("hello there")}}>Kup teraz</Button>
           <Button outlined>Zobacz wszystkie produkty</Button>
         </ButtonWrapper>
-      </CardContent>
+      </CardContent> */}
     </CardContainer>
   );
 };

@@ -17,7 +17,7 @@ const variants = {
 export const Button = styled.button`
   position: relative;
   overflow: hidden;
-  z-index: 0;
+  z-index: 2;
   cursor: pointer;
   font-size: 1rem;
   border: none;
