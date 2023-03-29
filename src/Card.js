@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useSwiperSlide } from "swiper/react";
-import { Button, ButtonWrapper } from "./Buttons";
 
 const CardContainer = styled.div`
   display: flex;
@@ -47,42 +46,10 @@ const Image = styled.img`
   }
 `;
 
-const CardContent = styled.div`
-  text-align: center;
-  margin-top: 20px;
-  cursor: default;
-  margin-left: -20px;
-  margin-right: -20px;
-  display: ${(props) => (props.active ? "block" : "none")};
-  animation: ${(props) =>
-    props.active
-      ? "fadeIn 0.9s ease-in-out"
-      : "fadeOut 0.9s ease-in-out forwards"};
-  animation-delay: ${(props) => (props.active ? "0" : "1.2s")};
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-`;
-
 export const Card = ({ item, activeIndex }) => {
   const activeItem = useSwiperSlide().isActive;
 
-  const active = activeIndex && activeItem;
+  const active = activeIndex >= 0 && activeItem;
  
   return (
     <CardContainer>
@@ -93,14 +60,6 @@ export const Card = ({ item, activeIndex }) => {
       >
         <Image active={active} src={item.image} alt="bla" />
       </ImageContainer>
-      {/* <CardContent active={active}>
-        <h3>{item.title}</h3>
-        <p>{item.desc}</p>
-        <ButtonWrapper column>
-          <Button onClick={() => { alert("hello there")}}>Kup teraz</Button>
-          <Button outlined>Zobacz wszystkie produkty</Button>
-        </ButtonWrapper>
-      </CardContent> */}
     </CardContainer>
   );
 };

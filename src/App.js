@@ -1,5 +1,5 @@
 import "./App.css";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import styled from "styled-components";
 import "swiper/css";
 import { Button, ButtonWrapper } from "./Buttons";
@@ -24,19 +24,17 @@ const SwiperCard = styled(SwiperSlide)`
 
 const CardContent = styled.div`
   text-align: center;
-
   cursor: default;
-  margin-left: -20px;
-  margin-right: -20px;
-
   font-size: 1rem;
-  display: ${(props) => (props.active ? "block" : "none")};
+  display: ${(props) => (props.active >= 0 ? "block" : "none")};
   animation: ${(props) =>
-    props.active
+    props.active >= 0
       ? "fadeIn 0.9s ease-in-out"
       : "fadeOut 0.9s ease-in-out forwards"};
-  animation-delay: ${(props) => (props.active ? "0" : "1.2s")};
-
+  animation-delay: ${(props) => (props.active >= 0 ? "0" : "1.2s")};
+    h3 {
+      font-size: 1.5rem;
+    }
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -57,13 +55,13 @@ const CardContent = styled.div`
 `;
 
 const App = () => {
-  const [activeIndex, setActiveIndex] = useState(4);
-  const [realIndex, setRealIndex] = useState(4);
+  const [activeIndex, setActiveIndex] = useState(1);
+  const [realIndex, setRealIndex] = useState(1);
 
   return (
     <>
       <SwiperContainer
-        initialSlide={4}
+        initialSlide={1}
         slidesPerView={2}
         loopedSlides={6}
         spaceBetween={20}
@@ -73,7 +71,7 @@ const App = () => {
         centeredSlides={true}
         grabCursor={true}
         onTouchStart={() => {
-          setActiveIndex(null);
+          setActiveIndex(-1);
         }}
         onTouchEnd={(swiper) => {
           setActiveIndex(swiper.realIndex);
@@ -98,16 +96,17 @@ const App = () => {
           },
         }}
       >
-        {[...items, ...items].map((item, i) => (
+        {[...items, ...items, ...items, ...items].map((item, i) => (
           <SwiperCard key={i}>
             <Card item={item} activeIndex={activeIndex} />
           </SwiperCard>
         ))}
-        <div style={{ height: "900px", paddingTop: '20px' }}>
-          {activeIndex && (
+        <div style={{ minHeight: "250px", paddingTop: '20px' }}>
+          { console.log(activeIndex)}
+           { activeIndex >= 0 && (
             <CardContent active={activeIndex}>
-              <h3>{[...items, ...items][realIndex].title}</h3>
-              <p>{[...items, ...items][realIndex].desc}</p>
+              <h3>{[...items, ...items, ...items, ...items][realIndex].title}</h3>
+              <p>{[...items, ...items, ...items, ...items][realIndex].desc}</p>
               <ButtonWrapper column>
                 <Button
                   onClick={() => {
