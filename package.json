@@ -12,7 +12,7 @@
     "styled-components": "^5.3.6",
     "swiper": "^9.1.1"
   },
-  "homepage": "https://AndrejRaven.github.io/",
+  "homepage": "https://AndrejRaven.github.io/home",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
