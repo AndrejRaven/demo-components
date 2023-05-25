@@ -19,10 +19,11 @@ export const Button = styled.button`
   overflow: hidden;
   z-index: 2;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.75rem;
   border: none;
   font-weight: bold;
   padding: 0.75rem 2rem;
+  min-width: 100px;
   border-radius: 1.5rem;
   color: white;
   background-color: black;
