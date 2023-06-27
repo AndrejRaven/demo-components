@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "../components/Modal/Modal";
 import BannerConstructor from "../components/Banner/BannerConstructor";
@@ -7,6 +8,7 @@ import { Button } from "../components/Buttons";
 import { Spacer } from "../helper/Spacer";
 import { ProductCarusel } from "../components/Carusel/ProductCarusel";
 import { items } from "../data";
+
 
 
 const ComponentWrapper = styled.div`
@@ -18,6 +20,9 @@ const ComponentWrapper = styled.div`
   &:hover {
     opacity: 50%;
   }
+  &:nth-child(0) {
+    pointer-events: none;
+  }
 `;
 
 const Page1 = () => {
@@ -25,17 +30,25 @@ const Page1 = () => {
   const [data, setData] = useState({
     image: "https://i.postimg.cc/59B3wctT/lodowka-2.png",
     height: 75,
+    width: 100,
+    direction: 'rtl',
+    contentPadding: 40,
     imageAlt: "blabla",
     title: "Banner Title",
-    description: "banner text test first",
-    buttonText: "Fix price"
+    description: "In adipisicing est aute irure exercitation ut deserunt pariatur aute ex. Nostrud consequat commodo proident in eiusmod sint ullamco irure velit ipsum ea est duis sunt. Labore id ipsum ullamco Lorem consequat aute ea anim et.",
+    buttonText: "Learn more",
+    buttonLink: "page2"
   })
-
+  const navigate = useNavigate();
   const changedData = { ...data };
 
   const handleSetData = () => {
       setData(changedData);
       setIsOpen(false);
+  }
+
+  const buttonClick = (link) => {
+    navigate(link)
   }
 
   return (
@@ -49,15 +62,18 @@ const Page1 = () => {
           onClose={() => setIsOpen(false)} 
           onSave={handleSetData} />
       </Modal>
-      <ComponentWrapper onClick={() => setIsOpen(true)}>
+      <ComponentWrapper onClick={(e) => setIsOpen(true)}>
         <Banner
           height={data.height}
+          width={data.width}
+          contentPadding={data.contentPadding}
           image={data.image}
+          direction={data.direction}
           imageAlt={data.imageAlt}
         >
           <h1>{data.title}</h1>
-          <p>{data.description}</p>
-          <Button>{data.buttonText}</Button>
+          <h4>{data.description}</h4>
+          <Button onClick={() => buttonClick(data.buttonLink)}>{data.buttonText}</Button>
         </Banner>
       </ComponentWrapper>
       <Spacer size={100} />

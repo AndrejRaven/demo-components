@@ -58,11 +58,16 @@ const Input = styled.input`
   border-radius: 5px;
 `;
 const options = [
-  { id: 1, height: 25, label: "25%" },
-  { id: 2, height: 50, label: "50%" },
-  { id: 3, height: 75, label: "75%" },
-  { id: 4, height: 100, label: "100%" },
+  { id: 1, value: 25, label: "25%" },
+  { id: 2, value: 50, label: "50%" },
+  { id: 3, value: 75, label: "75%" },
+  { id: 4, value: 100, label: "100%" },
 ];
+
+const directionOptions = [
+  { id: 1, value: 'rtl', label: "Right to left" },
+  { id: 1, value: 'ltr', label: "Left to right" },
+]
 
 const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
   const [activeTab, setActiveTab] = useState("general");
@@ -73,13 +78,7 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
 
   const handleChangeProperty = (property, e) => {
     changedData[property] = e.target.value;
-    console.log(changedData[property])
   };
-
-  const handleSelectChange = (e) => {
-    console.log(e.target.value)
-    changedData.height = e.target.value;
-  }
 
   return (
     <Container>
@@ -120,7 +119,35 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
                 options={options}
                 defaultValue={changedData.height}
                 active={data.height}
-                onChange={handleSelectChange}
+                valueItem='height'
+                onChange={(e) => handleChangeProperty("height", e)}
+              />
+            </InputContainer>
+            <InputContainer>
+              <Label>Widht</Label>
+              <Dropdown
+                options={options}
+                defaultValue={changedData.width}
+                active={data.width}
+                valueItem='width'
+                onChange={(e) => handleChangeProperty("width", e)}
+              />
+            </InputContainer>
+            <InputContainer>
+              <Label>Direction</Label>
+              <Dropdown
+                options={directionOptions}
+                defaultValue={changedData.direction}
+                active={data.direction}
+                valueItem='direction'
+                onChange={(e) => handleChangeProperty("direction", e)}
+              />
+            </InputContainer>
+            <InputContainer>
+              <Label>Content padding</Label>
+              <Input
+                defaultValue={changedData.contentPadding}
+                onChange={(e) => handleChangeProperty("contentPadding", e)}
               />
             </InputContainer>
           </div>
@@ -132,6 +159,13 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
               <Input
                 defaultValue={changedData.image}
                 onChange={(e) => handleChangeProperty("image", e)}
+              />
+            </InputContainer>
+            <InputContainer>
+              <Label>Image alt</Label>
+              <Input
+                defaultValue={changedData.imageAlt}
+                onChange={(e) => handleChangeProperty("imageAlt", e)}
               />
             </InputContainer>
           </div>
@@ -150,6 +184,20 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
               <Input
                 defaultValue={data.description}
                 onChange={(e) => handleChangeProperty("description", e)}
+              />
+            </InputContainer>
+            <InputContainer>
+              <Label>Button text</Label>
+              <Input
+                defaultValue={data.buttonText}
+                onChange={(e) => handleChangeProperty("buttonText", e)}
+              />
+            </InputContainer>
+            <InputContainer>
+              <Label>Button link</Label>
+              <Input
+                defaultValue={data.buttonLink}
+                onChange={(e) => handleChangeProperty("buttonLink", e)}
               />
             </InputContainer>
           </div>
