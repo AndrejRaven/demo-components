@@ -8,6 +8,7 @@ import { Spacer } from "../helper/Spacer";
 import { ProductCarusel } from "../components/Carusel/ProductCarusel";
 import { items } from "../data";
 
+
 const ComponentWrapper = styled.div`
   padding: 0 50px;
   opacity: 100%;
@@ -26,14 +27,14 @@ const Page1 = () => {
     height: 75,
     imageAlt: "blabla",
     title: "Banner Title",
-    text: "banner text test first",
+    description: "banner text test first",
     buttonText: "Fix price"
   })
 
-  const changedDate = { ...data };
+  const changedData = { ...data };
 
   const handleSetData = () => {
-      setData(changedDate);
+      setData(changedData);
       setIsOpen(false);
   }
 
@@ -41,7 +42,12 @@ const Page1 = () => {
     <>
     <h1>Komponent do edytowania zawartośći:</h1>
       <Modal isOpen={isOpen}>
-        <BannerConstructor data={data} changedDate={changedDate} setData={setData} onClose={() => setIsOpen(false)} onSave={handleSetData} />
+        <BannerConstructor 
+          data={data} 
+          changedData={changedData} 
+          setData={setData} 
+          onClose={() => setIsOpen(false)} 
+          onSave={handleSetData} />
       </Modal>
       <ComponentWrapper onClick={() => setIsOpen(true)}>
         <Banner
@@ -50,7 +56,7 @@ const Page1 = () => {
           imageAlt={data.imageAlt}
         >
           <h1>{data.title}</h1>
-          <p>{data.text}</p>
+          <p>{data.description}</p>
           <Button>{data.buttonText}</Button>
         </Banner>
       </ComponentWrapper>

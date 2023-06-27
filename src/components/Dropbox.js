@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 
-const Dropdown = ({ options, active }) => {
-  const [activeOption, setActive] = useState("choose option");
-
-  const handleChange = (event) => {
-    setActive(event.target.value);
-  };
+const Dropdown = ({ options, active, onChange }) => {
+  const [activeOption, setActive] = useState(`${active}%`);
 
   return (
-    <select value={active} onChange={handleChange}>
+    <select defaultValue={active} onChange={onChange}>
       <option disabled value={active}>
         {activeOption}
       </option>
       {options.map((option) => (
-        <option key={option.id} value={option.label}>
+        <option key={option.id} value={option.height}>
           {option.label}
         </option>
       ))}

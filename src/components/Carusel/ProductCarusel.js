@@ -100,7 +100,6 @@ export const ProductCarusel = ({ items }) => {
           </SwiperCard>
         ))}
         <div style={{ minHeight: "250px", paddingTop: '20px' }}>
-          { console.log(activeIndex)}
            { activeIndex >= 0 && (
             <CardContent active={activeIndex}>
               <h3>{[...items, ...items, ...items, ...items][realIndex].title}</h3>

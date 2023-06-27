@@ -14,7 +14,7 @@ const Container = styled.div`
 `;
 const ContentContainer = styled.div`
   height: 100%;
-  padding: 20px;
+  padding: 40px;
 `;
 
 const ImageContainer = styled.div`

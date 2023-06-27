@@ -58,28 +58,27 @@ const Input = styled.input`
   border-radius: 5px;
 `;
 const options = [
-  { id: 1, width: "25%", label: "25%" },
-  { id: 2, width: "50%", label: "50%" },
-  { id: 3, width: "75%", label: "75%" },
+  { id: 1, height: 25, label: "25%" },
+  { id: 2, height: 50, label: "50%" },
+  { id: 3, height: 75, label: "75%" },
+  { id: 4, height: 100, label: "100%" },
 ];
 
-const BannerConstructor = ({ data, changedDate, onClose, onSave }) => {
-  const [activeTab, setActiveTab] = useState("tab1");
+const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
+  const [activeTab, setActiveTab] = useState("general");
 
   const handleTabClick = (tabId) => {
     setActiveTab(tabId);
   };
 
- 
-
-  const handleChangeImage = (e) => {
-    changedDate.image = e.target.value;
+  const handleChangeProperty = (property, e) => {
+    changedData[property] = e.target.value;
+    console.log(changedData[property])
   };
-  const handleTitleChange = (e) => {
-    changedDate.title = e.target.value;
-  }
-  const handleHeightChange = (e) => {
-    changedDate.height = e.target.value;
+
+  const handleSelectChange = (e) => {
+    console.log(e.target.value)
+    changedData.height = e.target.value;
   }
 
   return (
@@ -95,45 +94,66 @@ const BannerConstructor = ({ data, changedDate, onClose, onSave }) => {
       <Form onClick={(e) => e.preventDefault()}>
         <TabWrapper>
           <Tab
-            isActive={activeTab === "tab1"}
-            onClick={() => handleTabClick("tab1")}
+            isActive={activeTab === "general"}
+            onClick={() => handleTabClick("general")}
           >
             General
           </Tab>
           <Tab
-            isActive={activeTab === "tab2"}
-            onClick={() => handleTabClick("tab2")}
+            isActive={activeTab === "image"}
+            onClick={() => handleTabClick("image")}
           >
             Images
           </Tab>
           <Tab
-            isActive={activeTab === "tab3"}
-            onClick={() => handleTabClick("tab3")}
+            isActive={activeTab === "content"}
+            onClick={() => handleTabClick("content")}
           >
             Content
           </Tab>
         </TabWrapper>
-        {activeTab === "tab1" && (
+        {activeTab === "general" && (
+          <div>
+            <InputContainer>
+              <Label>Height</Label>
+              <Dropdown
+                options={options}
+                defaultValue={changedData.height}
+                active={data.height}
+                onChange={handleSelectChange}
+              />
+            </InputContainer>
+          </div>
+        )}
+        {activeTab === "image" && (
           <div>
             <InputContainer>
               <Label>Image</Label>
               <Input
-                defaultValue={changedDate.image}
-                onChange={handleChangeImage}
+                defaultValue={changedData.image}
+                onChange={(e) => handleChangeProperty("image", e)}
               />
-            </InputContainer>
-            <InputContainer>
-              <Label>Title</Label>
-              <Input defaultValue={data.title} onChange={handleTitleChange} />
-            </InputContainer>
-            <InputContainer>
-              <Label>Height</Label>
-              <Dropdown options={options} active={data.height} onChange={handleHeightChange} />
             </InputContainer>
           </div>
         )}
-        {activeTab === "tab2" && <p>Tab 2 content goes here</p>}
-        {activeTab === "tab3" && <p>Tab 3 content goes here</p>}
+        {activeTab === "content" && (
+          <div>
+            <InputContainer>
+              <Label>Title</Label>
+              <Input
+                defaultValue={data.title}
+                onChange={(e) => handleChangeProperty("title", e)}
+              />
+            </InputContainer>
+            <InputContainer>
+              <Label>Description</Label>
+              <Input
+                defaultValue={data.description}
+                onChange={(e) => handleChangeProperty("description", e)}
+              />
+            </InputContainer>
+          </div>
+        )}
       </Form>
     </Container>
   );
