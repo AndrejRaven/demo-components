@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Dropdown from "../Dropbox";
 import { FaTimes, FaCheck } from "react-icons/fa";
-
+import GridRadiobox from "../TestRadiobox";
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -22,7 +22,7 @@ const CloseButton = styled.button`
 
 const Form = styled.form`
   width: 100%;
-  height: 100%;
+  height: 60vh;
   min-width: 50vw;
   min-height: 50vh;
 `;
@@ -40,6 +40,12 @@ const Tab = styled.button`
   padding: 0.5rem 1rem;
   cursor: pointer;
 `;
+
+const TabContent = styled.div`
+  overflow-y: scroll;
+  width: 100%;
+  height: 90%;
+`
 
 const InputContainer = styled.div`
   display: flex;
@@ -62,6 +68,19 @@ const options = [
   { id: 2, value: 50, label: "50%" },
   { id: 3, value: 75, label: "75%" },
   { id: 4, value: 100, label: "100%" },
+  { id: 5, value: false, label: "auto" },
+];
+
+const positionOptions = [
+  { id: 'tl', value: 'tl', label: "top left" },
+  { id: 'tc', value: 'tc', label: "top center" },
+  { id: 'tr', value: "tr", label: "top right" },
+  { id: 'cl', value: "cl", label: "center left" },
+  { id: 'cc', value: "cc", label: "center center" },
+  { id: 'cr', value: "cr", label: "center right" },
+  { id: 'bl', value: "bl", label: "bottom left" },
+  { id: 'bc', value: "bc", label: "bottom center" }, 
+  { id: 'br', value: "br", label: "bottom right" },
 ];
 
 const directionOptions = [
@@ -112,7 +131,7 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
           </Tab>
         </TabWrapper>
         {activeTab === "general" && (
-          <div>
+          <TabContent>
             <InputContainer>
               <Label>Height</Label>
               <Dropdown
@@ -150,10 +169,10 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
                 onChange={(e) => handleChangeProperty("contentPadding", e)}
               />
             </InputContainer>
-          </div>
+          </TabContent>
         )}
         {activeTab === "image" && (
-          <div>
+          <TabContent>
             <InputContainer>
               <Label>Image</Label>
               <Input
@@ -168,10 +187,13 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
                 onChange={(e) => handleChangeProperty("imageAlt", e)}
               />
             </InputContainer>
-          </div>
+            <Label>Image position</Label>
+            <GridRadiobox position={data.imagePosition} positionOptions={positionOptions} handleChangeProperty={handleChangeProperty} />
+
+          </TabContent>
         )}
         {activeTab === "content" && (
-          <div>
+          <TabContent>
             <InputContainer>
               <Label>Title</Label>
               <Input
@@ -200,7 +222,7 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
                 onChange={(e) => handleChangeProperty("buttonLink", e)}
               />
             </InputContainer>
-          </div>
+          </TabContent>
         )}
       </Form>
     </Container>

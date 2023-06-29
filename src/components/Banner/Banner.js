@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const BannerContainer = styled.div`
-  width: ${({ width }) => (width ? `${width}%` : "100%")};
-  height: ${({ height }) => (height ? `${height}vh}` : "100%")};
+  width: ${({ width }) => (width ? `${width}%` : "auto")};
+  height: ${({ height }) => (height ? `${height}vh}` : "auto")};
   margin: 0 auto;
   background-color: ${({ backgroundColor }) => (backgroundColor ? `${backgroundColor}` : "none")};
   background-image: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : "none")};
@@ -23,18 +23,45 @@ const ImageContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ backgroundColor }) => (backgroundColor ? `${backgroundColor}` : "none")};
+  justify-content: ${({ position }) => getPosition(position).justifyContent};
+  align-items: ${({ position }) => getPosition(position).alignItems};
+  background-color: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : "none")};
   background-image: ${({ backgroundImage }) => (backgroundImage ? `url(${backgroundImage})` : "none")};
+  background-repeat: no-repeat;
+  background-position: center center;
 `;
+
+function getPosition(position) {
+  switch (position) {
+    case 'tl':
+      return { justifyContent: 'flex-start', alignItems: 'flex-start' };
+    case 'tc':
+      return { justifyContent: 'center', alignItems: 'flex-start' };
+    case 'tr':
+      return { justifyContent: 'flex-end', alignItems: 'flex-start' };
+    case 'cl':
+      return { justifyContent: 'flex-start', alignItems: 'center' };
+    case 'cc':
+      return { justifyContent: 'center', alignItems: 'center' };
+    case 'cr':
+      return { justifyContent: 'flex-end', alignItems: 'center' };
+    case 'bl':
+      return { justifyContent: 'flex-start', alignItems: 'flex-end' };
+    case 'bc':
+      return { justifyContent: 'center', alignItems: 'flex-end' };
+    case 'br':
+      return { justifyContent: 'flex-end', alignItems: 'flex-end' };
+    default:
+      return { justifyContent: 'center', alignItems: 'center' };
+  }
+}
 
 const Image = styled.img`
   height: 400px;
   width: 400px;
 `;
 
-export const Banner = ({ children, image, imageAlt, height, width, direction, contentPadding }) => {
+export const Banner = ({ children, image, imageAlt, height, width, direction, contentPadding, imagePosition }) => {
   return (
     <BannerContainer 
       height={height}
@@ -47,7 +74,7 @@ export const Banner = ({ children, image, imageAlt, height, width, direction, co
         </ContentContainer>
       </Container>
       <Container>
-        <ImageContainer>
+        <ImageContainer position={imagePosition} >
           <Image src={image} alt={imageAlt} />
         </ImageContainer>
       </Container>

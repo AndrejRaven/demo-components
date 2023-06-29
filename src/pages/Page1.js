@@ -28,12 +28,13 @@ const ComponentWrapper = styled.div`
 const Page1 = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState({
-    image: "https://i.postimg.cc/59B3wctT/lodowka-2.png",
     height: 75,
     width: 100,
     direction: 'rtl',
     contentPadding: 40,
+    image: "https://i.postimg.cc/59B3wctT/lodowka-2.png",
     imageAlt: "blabla",
+    imagePosition: "br",
     title: "Banner Title",
     description: "In adipisicing est aute irure exercitation ut deserunt pariatur aute ex. Nostrud consequat commodo proident in eiusmod sint ullamco irure velit ipsum ea est duis sunt. Labore id ipsum ullamco Lorem consequat aute ea anim et.",
     buttonText: "Learn more",
@@ -70,9 +71,10 @@ const Page1 = () => {
           image={data.image}
           direction={data.direction}
           imageAlt={data.imageAlt}
+          imagePosition={data.imagePosition}
         >
           <h1>{data.title}</h1>
-          <h4>{data.description}</h4>
+          <p>{data.description}</p>
           <Button onClick={() => buttonClick(data.buttonLink)}>{data.buttonText}</Button>
         </Banner>
       </ComponentWrapper>
