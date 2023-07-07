@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Dropdown from "../Dropbox";
 import { FaTimes, FaCheck } from "react-icons/fa";
 import GridRadiobox from "../TestRadiobox";
+import DraftEditor from "../Editor/testDraft";
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -96,7 +98,7 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
   };
 
   const handleChangeProperty = (property, e) => {
-    changedData[property] = e.target.value;
+    changedData[property] = e;
   };
 
   return (
@@ -139,7 +141,7 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
                 defaultValue={changedData.height}
                 active={data.height}
                 valueItem='height'
-                onChange={(e) => handleChangeProperty("height", e)}
+                onChange={(e) => handleChangeProperty("height", e.target.value)}
               />
             </InputContainer>
             <InputContainer>
@@ -149,7 +151,7 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
                 defaultValue={changedData.width}
                 active={data.width}
                 valueItem='width'
-                onChange={(e) => handleChangeProperty("width", e)}
+                onChange={(e) => handleChangeProperty("width", e.target.value)}
               />
             </InputContainer>
             <InputContainer>
@@ -159,14 +161,14 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
                 defaultValue={changedData.direction}
                 active={data.direction}
                 valueItem='direction'
-                onChange={(e) => handleChangeProperty("direction", e)}
+                onChange={(e) => handleChangeProperty("direction", e.target.value)}
               />
             </InputContainer>
             <InputContainer>
               <Label>Content padding</Label>
               <Input
                 defaultValue={changedData.contentPadding}
-                onChange={(e) => handleChangeProperty("contentPadding", e)}
+                onChange={(e) => handleChangeProperty("contentPadding", e.target.value)}
               />
             </InputContainer>
           </TabContent>
@@ -177,14 +179,14 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
               <Label>Image</Label>
               <Input
                 defaultValue={changedData.image}
-                onChange={(e) => handleChangeProperty("image", e)}
+                onChange={(e) => handleChangeProperty("image", e.target.value)}
               />
             </InputContainer>
             <InputContainer>
               <Label>Image alt</Label>
               <Input
                 defaultValue={changedData.imageAlt}
-                onChange={(e) => handleChangeProperty("imageAlt", e)}
+                onChange={(e) => handleChangeProperty("imageAlt", e.target.value)}
               />
             </InputContainer>
             <Label>Image position</Label>
@@ -194,34 +196,8 @@ const BannerConstructor = ({ data, changedData, onClose, onSave }) => {
         )}
         {activeTab === "content" && (
           <TabContent>
-            <InputContainer>
-              <Label>Title</Label>
-              <Input
-                defaultValue={data.title}
-                onChange={(e) => handleChangeProperty("title", e)}
-              />
-            </InputContainer>
-            <InputContainer>
-              <Label>Description</Label>
-              <Input
-                defaultValue={data.description}
-                onChange={(e) => handleChangeProperty("description", e)}
-              />
-            </InputContainer>
-            <InputContainer>
-              <Label>Button text</Label>
-              <Input
-                defaultValue={data.buttonText}
-                onChange={(e) => handleChangeProperty("buttonText", e)}
-              />
-            </InputContainer>
-            <InputContainer>
-              <Label>Button link</Label>
-              <Input
-                defaultValue={data.buttonLink}
-                onChange={(e) => handleChangeProperty("buttonLink", e)}
-              />
-            </InputContainer>
+            <Label>Edit content</Label>
+            <DraftEditor htmlContent={data.htmlContent} handleChangeProperty={handleChangeProperty} />
           </TabContent>
         )}
       </Form>

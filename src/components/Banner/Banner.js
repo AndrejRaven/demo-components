@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Editor } from "@tinymce/tinymce-react";
 
 const BannerContainer = styled.div`
   width: ${({ width }) => (width ? `${width}%` : "auto")};
@@ -61,7 +62,9 @@ const Image = styled.img`
   width: 400px;
 `;
 
-export const Banner = ({ children, image, imageAlt, height, width, direction, contentPadding, imagePosition }) => {
+export const Banner = ({ image, imageAlt, height, width, direction, contentPadding, imagePosition, htmlContent }) => {
+
+
   return (
     <BannerContainer 
       height={height}
@@ -70,7 +73,12 @@ export const Banner = ({ children, image, imageAlt, height, width, direction, co
       backgroundColor='silver'>
       <Container>
         <ContentContainer contentPadding={contentPadding} >
-          {children}
+          <Editor
+            initialValue={htmlContent}
+            apiKey='cxsxdi10ibr4ph9jphmz0xgheq27z5dgrljkfif43z61j7zh'
+            disabled={true} // Optional: Set to true to disable editor interactions
+            inline={true}
+          />
         </ContentContainer>
       </Container>
       <Container>

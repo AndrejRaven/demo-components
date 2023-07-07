@@ -1,13 +1,9 @@
-
-body {
-  background-color: white;
-  margin: 0;
-  font-family:  Helvetica, sans-serif;
-  font-size: 14px;
+.like {
+  font-size: 8px;
 }
 
-.text-red {
-  color: pink;
+.editor {
+  padding: 20px
 }
 
 .prm-button {

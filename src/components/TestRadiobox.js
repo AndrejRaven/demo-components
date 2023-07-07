@@ -41,7 +41,7 @@ const GridRadiobox = ({ positionOptions, position, handleChangeProperty}) => {
 
   const handleChange = (event) => {
     setCheckedPosition(event.target.value);
-    handleChangeProperty('imagePosition', event)
+    handleChangeProperty('imagePosition', event.target.value)
   };
 
   return (
