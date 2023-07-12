@@ -66,11 +66,11 @@ const Input = styled.input`
   border-radius: 5px;
 `;
 const options = [
-  { id: 1, value: 25, label: "25%" },
-  { id: 2, value: 50, label: "50%" },
-  { id: 3, value: 75, label: "75%" },
-  { id: 4, value: 100, label: "100%" },
-  { id: 5, value: false, label: "auto" },
+  { id: 1.1, value: 25, label: "25%" },
+  { id: 2.1, value: 50, label: "50%" },
+  { id: 3.1, value: 75, label: "75%" },
+  { id: 4.1, value: 100, label: "100%" },
+  { id: 5.1, value: 'auto', label: "auto" },
 ];
 
 const positionOptions = [
@@ -87,7 +87,7 @@ const positionOptions = [
 
 const directionOptions = [
   { id: 1, value: 'rtl', label: "Right to left" },
-  { id: 1, value: 'ltr', label: "Left to right" },
+  { id: 2, value: 'ltr', label: "Left to right" },
 ]
 
 const BannerConstructor = ({ data, changedData, onClose, onSave }) => {

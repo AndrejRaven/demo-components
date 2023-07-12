@@ -62,19 +62,19 @@ const Image = styled.img`
   width: 400px;
 `;
 
-export const Banner = ({ image, imageAlt, height, width, direction, contentPadding, imagePosition, htmlContent }) => {
+export const Banner = ({ data }) => {
 
 
   return (
     <BannerContainer 
-      height={height}
-      width={width} 
-      direction={direction} 
+      height={data.height}
+      width={data.width} 
+      direction={data.direction} 
       backgroundColor='silver'>
       <Container>
-        <ContentContainer contentPadding={contentPadding} >
+        <ContentContainer contentPadding={data.contentPadding} >
           <Editor
-            initialValue={htmlContent}
+            initialValue={data.htmlContent}
             apiKey='cxsxdi10ibr4ph9jphmz0xgheq27z5dgrljkfif43z61j7zh'
             disabled={true} // Optional: Set to true to disable editor interactions
             inline={true}
@@ -82,8 +82,8 @@ export const Banner = ({ image, imageAlt, height, width, direction, contentPaddi
         </ContentContainer>
       </Container>
       <Container>
-        <ImageContainer position={imagePosition} >
-          <Image src={image} alt={imageAlt} />
+        <ImageContainer position={data.imagePosition} >
+          <Image src={data.image} alt={data.imageAlt} />
         </ImageContainer>
       </Container>
     </BannerContainer>

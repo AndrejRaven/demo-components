@@ -6,8 +6,9 @@ body {
   font-size: 14px;
 }
 
-.text-red {
-  color: pink;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .prm-button {
@@ -27,4 +28,30 @@ body {
   background-position: left;
   text-align: center;
   transition: all 0.3s ease;
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  cursor: pointer;
+  font-size: 0.75rem;
+  border: none;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  min-width: 100px;
+  border-radius: 1.5rem;
+  color: white;
+  background-color: black;
+  background-size: 200% 100%;
+  background-position: left;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: aquamarine;
+
 }
